@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
+    <button @click="msg += '1234'">Change msg {{ msg }}</button>
     <nx-autowirer :msg="msg" @emit="emit">
       <slot name="header">
-        <HelloWorldHeader v-autowired />
+        <HelloWorldHeader />
       </slot>
     </nx-autowirer>
   </div>
@@ -10,11 +11,14 @@
 
 <script>
 import HelloWorldHeader from "./HelloWorldHeader";
+import NxAutowirer from "./NxAutowirer";
+import NxComponent from "./nx-component";
 
 export default {
   name: "HelloWorld",
   components: {
-    HelloWorldHeader,
+    HelloWorldHeader: NxComponent(HelloWorldHeader),
+    NxAutowirer,
   },
   data() {
     return {

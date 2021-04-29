@@ -4,7 +4,7 @@
 
     <HelloWorld>
       <template #header>
-        <HelloWorldHeader v-autowired>
+        <HelloWorldHeader>
           Test
         </HelloWorldHeader>
       </template>
@@ -16,12 +16,19 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import HelloWorldHeader from "@/components/HelloWorldHeader.vue";
+import NxComponent from "../components/nx-component";
 
 export default {
   name: "Home",
   components: {
     HelloWorld,
-    HelloWorldHeader,
+    HelloWorldHeader: NxComponent(HelloWorldHeader),
+  },
+  data() {
+    return {
+      test: {},
+      msg: "asdf",
+    };
   },
 };
 </script>

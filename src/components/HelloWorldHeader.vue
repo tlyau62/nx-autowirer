@@ -9,7 +9,11 @@
 <script>
 export default {
   props: {
-    msg: String,
+    msg: {
+      type: String,
+      default: "zz",
+    },
   },
+  name: "HelloWorldHeader",
 };
 </script>
